@@ -3,7 +3,7 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 const uuid = require("uuid/v4");
-// need data to be updatable as to push newNote;
+// need data to be updatable, as to push newNote;
 let data = require("./db/db.json");
 
 // sets-up the Express App;
@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // use for serving static assets/files;
-app.use(express.static(__dirname + "/public"));
+app.use(express.static("public"));
 
 // front-end request to the .html doc;
 app.get("/notes", (req, res) => {
@@ -29,15 +29,17 @@ app.get("/api/notes", (req, res) => {
 
 // front-end request to the back for data with .get;
 // anything that does not match a route, gets sent to the index.html;
-app.get("*", (req, res) => {
-	res.sendFile(path.join(__dirname, "public/assets/html/index.html"));
-});
+// app.get("*", (req, res) => {
+// 	res.sendFile(path.join(__dirname, "public/assets/html/index.html"));
+// });
 
 // send data from the front to the back with .post;
 app.post("/api/notes", (req, res) => {
 	const newNote = req.body;
 	// giving the note a unique id;
 	newNote.id = uuid();
+	console.log("this works  at line 41");
+
 	// console.log(`updating array of notes from browser`, newNote);
 	data.push(newNote);
 	// logging my data Arr;
