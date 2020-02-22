@@ -2,9 +2,11 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
+const uuid = require("uuid/v4");
+// need data to be updatable as to push newNote;
 let data = require("./db/db.json");
 
-// sets-up the Express App
+// sets-up the Express App;
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -22,7 +24,6 @@ app.get("/notes", (req, res) => {
 
 // route that gets my notes from the array of .JSON obj through the api route;
 app.get("/api/notes", (req, res) => {
-	console.log(`getting notes from index.js getNotes()`);
 	res.json(data);
 });
 
@@ -34,11 +35,13 @@ app.get("*", (req, res) => {
 
 // send data from the front to the back with .post;
 app.post("/api/notes", (req, res) => {
-	const sendNote = req.body;
-	// console.log(`updating array of notes from browser`, sendNote);
-	data.push(sendNote);
-	// logging my data Arr
-	console.log(data);
+	const newNote = req.body;
+	// giving the note a unique id;
+	newNote.id = uuid();
+	// console.log(`updating array of notes from browser`, newNote);
+	data.push(newNote);
+	// logging my data Arr;
+	// console.log(data);
 	fs.writeFile(
 		path.join(__dirname, "db/db.json"),
 		JSON.stringify(data),
@@ -53,13 +56,13 @@ app.post("/api/notes", (req, res) => {
 });
 
 // delete route from front to back-end;
-app.delete("/api/notes:/id", (req, res) => {
-	console.log(req.body);
-	console.log(data);
+app.delete("/api/notes/:id", (req, res) => {
+	// console.log(req.body);
+	console.log(req.params);
 	data = data.filter(element => {
-		return element.title != req.body.title;
+		return element.id != req.params.id;
 	});
-	console.log(data);
+	// console.log(data);
 	fs.writeFile(
 		path.join(__dirname, "db/db.json"),
 		JSON.stringify(data),
@@ -73,6 +76,7 @@ app.delete("/api/notes:/id", (req, res) => {
 	);
 });
 
+// allows the back-end to listen for events that happen on the front, through the PORT;
 app.listen(PORT, () => {
 	console.log(`app listening on port http://localhost:${PORT}`);
 });
