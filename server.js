@@ -29,16 +29,16 @@ app.get("/api/notes", (req, res) => {
 
 // front-end request to the back for data with .get;
 // anything that does not match a route, gets sent to the index.html;
-// app.get("*", (req, res) => {
-// 	res.sendFile(path.join(__dirname, "public/assets/html/index.html"));
-// });
+app.get("*", (req, res) => {
+	res.sendFile(path.join(__dirname, "public/assets/html/index.html"));
+});
 
 // send data from the front to the back with .post;
 app.post("/api/notes", (req, res) => {
 	const newNote = req.body;
 	// giving the note a unique id;
 	newNote.id = uuid();
-	console.log("this works  at line 41");
+	console.log(data);
 
 	// console.log(`updating array of notes from browser`, newNote);
 	data.push(newNote);
