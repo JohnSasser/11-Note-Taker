@@ -26,9 +26,9 @@ npm packages:
 
 - [Fs](https://www.npmjs.com/package/fs-js)
 - [Inquirer](https://www.npmjs.com/package/inquirer)
-- [express](https://www.npmjs.com/package/express)
-- [uuid](https://www.npmjs.com/package/uuid)
-- [path](https://www.npmjs.com/package/path)
+- [Express](https://www.npmjs.com/package/express)
+- [Uuid](https://www.npmjs.com/package/uuid)
+- [Path](https://www.npmjs.com/package/path)
 
 # Banter
 
