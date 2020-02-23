@@ -4,6 +4,8 @@ This app will help keep you up-to-speed in any environment you will need to reco
 
 One of the most important aspects of programming is writing code that is readable, reliable, and maintainable. Oftentimes, _how_ we design our code is just as important as the code itself.
 
+_Visit the live app [here](https://obscure-garden-90006.herokuapp.com/)
+
 # Description
 
 This app will allow you to record, retrieve, edit & delete a list of notes. A server-side application were all the magic happens on the heroku hosted server.
