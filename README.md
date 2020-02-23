@@ -1,6 +1,6 @@
 # 11-Note-Taker
 
-This app will help keep you up-to-speed in any environment you need to record information.
+This app will help keep you up-to-speed in any environment you will need to record information.
 
 One of the most important aspects of programming is writing code that is readable, reliable, and maintainable. Oftentimes, _how_ we design our code is just as important as the code itself.
 
