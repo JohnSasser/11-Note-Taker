@@ -18,10 +18,10 @@ This is is built with .js, Node.js, Express and other npm packages.
 
 # Built with
 
-- javascript
-- html5
-- css3
-- API server requests
+- JavaScript
+- HTML5
+- CSS3
+- API Server Requests
 - JSON data storage
 
 npm packages:
